@@ -7,7 +7,8 @@ const StyledProfileInfo = styled.div`
   display: flex;
 `;
 
-const Profile = ({ userToInspect, winner1 }) => {
+const Profile = ({ userToInspect, winner1}) => {
+ console.log("profile   ",userToInspect)
   return (
     <>
       {userToInspect && "username" in userToInspect ? (

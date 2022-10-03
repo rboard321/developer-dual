@@ -18,7 +18,8 @@ const StyledInspect = styled.div`
 const Inspect = (props) => {
   const [user, setUser] = useState();
   const [userToInspect, setUserToInspect] = useState();
-
+  const [errorMessage, setErrorMessage] = useState()
+  console.log("inspect....",errorMessage)
   const getUser = async (user) => {
     try {
       const userToInspect = await inspectUser(user);
@@ -26,9 +27,12 @@ const Inspect = (props) => {
         setUserToInspect(userToInspect);
       }
     } catch (error) {
+      setErrorMessage(error.tips)
       console.error(error);
     }
   };
+
+  
 
   return (
     <>
@@ -54,7 +58,7 @@ const Inspect = (props) => {
           backGround="#F9F9F9"
           border="2px solid black"
         >
-          <Profile userToInspect={userToInspect} />
+          <Profile userToInspect={userToInspect} errorMessage={errorMessage} />
         </Card>
       </StyledInspect>
     </>
